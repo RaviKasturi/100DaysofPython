@@ -1,2 +1,2 @@
 # 100DaysofPython
-This is my 100 day journey in learning python!
+This is my 100 day journey of learning python!

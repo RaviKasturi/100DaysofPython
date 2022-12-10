@@ -10,11 +10,12 @@ display = []
 for letter in chosen_word:
     display.append('_')
 
-guess = input('Guess the letter: ')
-
-for letter in chosen_word:
-    if letter == guess:
-        display[chosen_word.index(letter)] = letter
-
-print(display)
+while display.count('_') != 0:
+    guess = input('Guess the letter: ')
+    position = 0
+    for position in range(len(chosen_word)):
+        if chosen_word[position] == guess:
+            display[position] = guess
+        position += 1
+    print(display)
 

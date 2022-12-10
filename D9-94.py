@@ -1,23 +1,22 @@
-# https://app.codingrooms.com/management/assignments/364948/overview
+# https://app.codingrooms.com/management/assignments/364955/overview
 
-student_scores = {
-    "Harry": 81,
-    "Ron": 78,
-    "Hermione": 99,
-    "Draco": 74,
-    "Neville": 62,
-}
+travel_log = [
+    {
+        "country": "France",
+        "visits": 12,
+        "cities": ["Paris", "Lille", "Dijon"]
+    },
+    {
+        "country": "Germany",
+        "visits": 5,
+        "cities": ["Berlin", "Hamburg", "Stuttgart"]
+    },
+]
 
-student_grades = {}
 
-for key in student_scores:
-    if student_scores[key] >= 91:
-        student_grades[key] = 'Outstanding'
-    elif student_scores[key] >= 81:
-        student_grades[key] = 'Exceeds Expectations'
-    elif student_scores[key] >= 71:
-        student_grades[key] = 'Acceptable'
-    else:
-        student_grades[key] = 'Fail'
+def add_new_country(country, visits, cities):
+    travel_log.append({"country": country, "visits": visits, "cities": cities})
 
-print(student_grades)
+
+add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
+print(travel_log)

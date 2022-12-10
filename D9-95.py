@@ -1,22 +1,35 @@
-# https://app.codingrooms.com/management/assignments/364955/overview
-
-travel_log = [
-    {
-        "country": "France",
-        "visits": 12,
-        "cities": ["Paris", "Lille", "Dijon"]
-    },
-    {
-        "country": "Germany",
-        "visits": 5,
-        "cities": ["Berlin", "Hamburg", "Stuttgart"]
-    },
-]
+from auction_logo import logo
 
 
-def add_new_country(country, visits, cities):
-    travel_log.append({"country": country, "visits": visits, "cities": cities})
+def clrscr():
+    print ("\n" * 100)
 
 
-add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
-print(travel_log)
+def winner(bidders):
+    bid_winner = ''
+    bid_amount = 0
+    for key in bidders:
+        if bidders[key] > bid_amount:
+            bid_amount = bidders[key]
+            bid_winner = key
+    print(f'{bid_winner} is the winner with bid ${bid_amount}.')
+
+
+print(logo)
+print('Welcome to the secret auction program!')
+bidders = {}
+more_bidders = 'yes'
+
+while more_bidders == 'yes':
+    bidder = input('What is your name?\n')
+    bid = float(input('What is your bid?\n$'))
+    bidders[bidder] = bid
+    more_bidders = input("Are there any other bidders? Type 'yes' or 'no'.").lower()
+    clrscr()
+
+winner(bidders)
+
+
+
+
+

@@ -1,21 +1,17 @@
-# https://app.codingrooms.com/management/assignments/364943/overview
+# https://app.codingrooms.com/management/assignments/364946/overview
 
-# Write your code below this line 👇
+def prime_checker(number):
+    divisor = 2
+    prime = True
+    while prime and divisor <= number/2:
+        remainder = number % divisor
+        if remainder == 0:
+            prime = False
+            print(f'{number} is not a prime number. It is divisible by {divisor}.')
+        elif divisor + 1 > number/2:
+            print(f'{number} is a prime number.')
+        divisor += 1
 
-import math
 
-
-def paint_calc(height, width, cover):
-    area = height * width
-    cans = math.ceil(area / cover)
-    print(f"You'll need {cans} cans of paint.")
-
-
-# Write your code above this line 👆
-# Define a function called paint_calc() so that the code below works.
-
-# 🚨 Don't change the code below 👇
-test_h = int(input("Height of wall: "))
-test_w = int(input("Width of wall: "))
-coverage = 5
-paint_calc(height=test_h, width=test_w, cover=coverage)
+n = int(input("Check this number: "))
+prime_checker(number=n)

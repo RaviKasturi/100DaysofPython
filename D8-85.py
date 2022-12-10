@@ -1,17 +1,22 @@
-# https://app.codingrooms.com/management/assignments/364946/overview
+# https://replit.com/@appbrewery/caesar-cipher-1-start#main.py
 
-def prime_checker(number):
-    divisor = 2
-    prime = True
-    while prime and divisor <= number/2:
-        remainder = number % divisor
-        if remainder == 0:
-            prime = False
-            print(f'{number} is not a prime number. It is divisible by {divisor}.')
-        elif divisor + 1 > number/2:
-            print(f'{number} is a prime number.')
-        divisor += 1
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+            'v', 'w', 'x', 'y', 'z']
 
 
-n = int(input("Check this number: "))
-prime_checker(number=n)
+def encrypt(text, shift):
+    shift = shift % 26
+    encoded_text = ""
+    helper = []
+    for i in range(len(text)):
+        if text[i] in alphabet:
+            helper += text[i]
+            encoded_text += text[i].replace(text[i], alphabet[(alphabet.index(text[i])+shift) % 26])
+    print(encoded_text)
+
+
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
+if direction == 'encode':
+    encrypt(text=text, shift=shift)
